@@ -20,8 +20,8 @@ function updateStructure(rectangle1,rectangle2){
       rect1={};
       rect2={};
 
-     let scheight=1000;
-     let scwidth=1500;
+     let scheight=screen.availHeight;
+     let scwidth=screen.availWidth;
 	
 	
 //     console.log(convert(rectangle1.left));
