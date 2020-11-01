@@ -5,9 +5,18 @@
 //	height: '96px'
 //}
 
+function convert(str){
+
+  if(str!==undefined)
+  return Number(str.substr(0,str.length-2));
+  else
+  return undefined;
+}
+
 function updateStructure(rectangle1,rectangle2){
 	//write your code
 	
+     
       rect1={};
       rect2={};
 
@@ -15,31 +24,31 @@ function updateStructure(rectangle1,rectangle2){
      let scwidth=1500;
 	
 	
-    console.log(rectangle1.left);
+//     console.log(convert(rectangle1.left));
 
     
     let{top:t,left:l,bottom:b,right:r,height:h,width:w}= rectangle1;
     
-    rect1.top=t;
-    rect1.bottom=b;
-    rect1.left=l;
-    rect1.right=r;
-    rect1.height=h;
-    rect1.width=w;
+    rect1.top=convert(t);
+    rect1.bottom=convert(b);
+    rect1.left=convert(l);
+    rect1.right=convert(r);
+    rect1.height=convert(h);
+    rect1.width=convert(w);
 
     let{top,left,bottom,right,height,width}= rectangle2;
     
-    rect2.top=top;
-    rect2.bottom=bottom;
-    rect2.left=left;
-    rect2.right=right;
-    rect2.height=height;
-    rect2.width=width;
+    rect2.top=convert(top);
+    rect2.bottom=convert(bottom);
+    rect2.left=convert(left);
+    rect2.right=convert(right);
+    rect2.height=convert(height);
+    rect2.width=convert(width);
 
     let arr=[rect1,rect2];
     let original=[rectangle1,rectangle2];
-    console.log(arr);
-    console.log(original);
+//     console.log(arr);
+//     console.log(original);
     
     for(let i=0;i<2;i++){
 
@@ -59,8 +68,8 @@ function updateStructure(rectangle1,rectangle2){
           arr[i].right=scwidth-(arr[i].left+arr[i].width);
     }
   }
-    console.log(rectangle1.right,rectangle2.bottom);
-    console.log("after margin calculation",arr);
+//     console.log(rectangle1.right,rectangle2.bottom);
+//     console.log("after margin calculation",arr);
 
 for(let i=0;i<2;i++){
   let j=(i==0)?1:0;
@@ -69,28 +78,28 @@ for(let i=0;i<2;i++){
     && arr[i].top<=arr[j].top && arr[i].bottom<=arr[j].bottom){
 
          if(original[j].top!==undefined){
-              original[j].top=original[j].top-arr[i].top;
+              original[j].top=(arr[j].top-arr[i].top)+'px';
          }
 
          if(original[j].bottom!==undefined){
-           original[j].bottom=original[j].bottom-arr[i].bottom;
+           original[j].bottom=(arr[j].bottom-arr[i].bottom)+'px';
          }
 
          if(original[j].left!==undefined){
-           original[j].left=original[j].left-arr[i].left;
+           original[j].left=(arr[j].left-arr[i].left)+"px";
          }
 
          if(original[j].right!==undefined){
-           original[j].right=original[j].right-arr[i].right;
+           original[j].right=(arr[j].right-arr[i].right)+'px';
          }
      original[i].children.push(original[j]);
-console.log("result",original[i]);
+// console.log("result",original[i]);
      break; 
     }
 }
 
-console.log("after detection",arr);
-console.log("result",original);
+// console.log("after detection",arr);
+// console.log("result",original);
 
 }
 
