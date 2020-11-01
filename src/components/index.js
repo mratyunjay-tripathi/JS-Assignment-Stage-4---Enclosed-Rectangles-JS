@@ -100,7 +100,7 @@ for(let i=0;i<2;i++){
 
 // console.log("after detection",arr);
 // console.log("result",original);
-
+return original;
 }
 
 module.exports = updateStructure;
