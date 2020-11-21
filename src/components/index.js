@@ -72,8 +72,8 @@ function normalize(recA){
   return {
     x1: recA.top?parseInt(recA.top) : (-(parseInt(recA.bottom)+parseInt(recA.height))),
     y1: recA.left? parseInt(recA.left): (-(parseInt(recA.width)+parseInt(recA.right))),
-    x2: recA.bottom? parseInt(recA.bottom) :(-(parseInt(recA.top)+parseInt(recA.height))),
-    y2: recA.right? parseInt(recA.right) : (-(parseInt(recA.width)+parseInt(recA.left)))
+    x2: recA.bottom? (-parseInt(recA.bottom)) :((parseInt(recA.top)+parseInt(recA.height))),
+    y2: recA.right? (-parseInt(recA.right)) : ((parseInt(recA.width)+parseInt(recA.left)))
   };
 }
      
