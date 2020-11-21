@@ -50,8 +50,8 @@ function relative(recA, recB){
     res.bottom=`${recAn.x2-recBn.x2}px`;
   }
 
-  if(recB.width){
-    res.width=`${recAn.y2-recBn.y2}px`;
+  if(recB.right){
+    res.right=`${recAn.y2-recBn.y2}px`;
   }
 
   return res;
